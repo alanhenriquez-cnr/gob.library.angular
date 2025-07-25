@@ -26,7 +26,12 @@
             ],
             "styles": [
               "src/styles.css"
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -87,6 +92,39 @@
           }
         }
       }
+    },
+    "gla.gob.sv": {
+      "projectType": "library",
+      "root": "projects/gla.gob.sv",
+      "sourceRoot": "projects/gla.gob.sv/src",
+      "prefix": "gla",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gla.gob.sv/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/gla.gob.sv/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/gla.gob.sv/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

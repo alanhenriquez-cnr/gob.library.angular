@@ -1,3 +1,438 @@
+// angular.json
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "gob.library.angular": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "gob.library.angular:build:production"
+            },
+            "development": {
+              "buildTarget": "gob.library.angular:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.css"
+            ]
+          }
+        }
+      }
+    },
+    "gla.gob.sv": {
+      "projectType": "library",
+      "root": "projects/gla.gob.sv",
+      "sourceRoot": "projects/gla.gob.sv/src",
+      "prefix": "gla",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gla.gob.sv/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/gla.gob.sv/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/gla.gob.sv/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}
+
+// package.json
+{
+  "name": "gob.library.angular",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.1.0",
+    "@angular/compiler": "^20.1.0",
+    "@angular/core": "^20.1.0",
+    "@angular/forms": "^20.1.0",
+    "@angular/platform-browser": "^20.1.0",
+    "@angular/router": "^20.1.0",
+    "@primeuix/themes": "^1.2.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.0.0",
+    "rxjs": "~7.8.0",
+    "tailwindcss": "^3.4.4",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.1.3",
+    "@angular/cli": "^20.1.3",
+    "@angular/compiler-cli": "^20.1.0",
+    "@types/jasmine": "~5.1.0",
+    "autoprefixer": "^10.4.21",
+    "jasmine-core": "~5.8.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^20.1.0",
+    "postcss": "^8.5.6",
+    "typescript": "~5.8.2"
+  }
+}
+
+// projects\gla.gob.sv\ng-package.json
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/gla.gob.sv",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  }
+}
+// projects\gla.gob.sv\package.json
+{
+  "name": "gla.gob.sv",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^20.1.0",
+    "@angular/core": "^20.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
+
+// projects\gla.gob.sv\README.md
+# GlaGobSv
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the library, run:
+
+```bash
+ng build gla.gob.sv
+```
+
+This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+
+### Publishing the Library
+
+Once the project is built, you can publish your library by following these steps:
+
+1. Navigate to the `dist` directory:
+   ```bash
+   cd dist/gla.gob.sv
+   ```
+
+2. Run the `npm publish` command to publish your library to the npm registry:
+   ```bash
+   npm publish
+   ```
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+// projects\gla.gob.sv\src\lib\gla.gob.sv.spec.ts
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { GlaGobSv } from './gla.gob.sv';
+
+describe('GlaGobSv', () => {
+  let component: GlaGobSv;
+  let fixture: ComponentFixture<GlaGobSv>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [GlaGobSv]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(GlaGobSv);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+// projects\gla.gob.sv\src\lib\gla.gob.sv.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'gla-gla.gob.sv',
+  imports: [],
+  template: `
+    <p>
+      gla.gob.sv works!
+    </p>
+  `,
+  styles: ``
+})
+export class GlaGobSv {
+
+}
+
+// projects\gla.gob.sv\src\public-api.ts
+/*
+ * Public API Surface of gla.gob.sv
+ */
+
+export * from './lib/gla.gob.sv';
+
+// projects\gla.gob.sv\tsconfig.lib.json
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "sourceMap": true,
+    "types": []
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+}
+
+// projects\gla.gob.sv\tsconfig.lib.prod.json
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.lib.json",
+  "compilerOptions": {
+    "declarationMap": false
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  }
+}
+
+// projects\gla.gob.sv\tsconfig.spec.json
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/spec",
+    "types": [
+      "jasmine"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
+
+// README.md
+# GobLibraryAngular
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+
+## Development server
+
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+// src\app\app.config.ts
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
@@ -2529,3 +2964,218 @@ const countries = [
     "number": 716
   }
 ]
+// src\app\app.css
+
+// src\app\app.html
+<main class="main">
+  <div class="content">
+
+
+    <div class="card flex justify-center">
+      <div class="flex flex-col gap-2">
+        <label for="username">Username</label>
+        <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="value" />
+        <small id="username-help">Enter your username to reset your password.</small>
+        <p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()"/>
+        <p-button label="Toggle Theme preset" (onClick)="changePrimaryColor()"/>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+
+<router-outlet />
+// src\app\app.routes.ts
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [];
+
+// src\app\app.spec.ts
+import { TestBed } from '@angular/core/testing';
+import { App } from './app';
+
+describe('App', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [App],
+    }).compileComponents();
+  });
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, gob.library.angular');
+  });
+});
+
+// src\app\app.ts
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { updatePrimaryPalette } from '@primeuix/themes';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, ButtonModule, FormsModule, InputTextModule],
+  templateUrl: './app.html',
+  styleUrl: './app.css',
+  standalone: true,
+})
+export class App {
+  protected readonly title = signal('gob.library.angular');
+
+  value: string | undefined;
+
+  toggleDarkMode() {
+    const element = document.querySelector('html');
+    element?.classList.toggle('gsdark');
+  }
+
+
+  changePrimaryColor() {
+    updatePrimaryPalette({
+        50: '{indigo.50}',
+        100: '{indigo.100}',
+        200: '{indigo.200}',
+        300: '{indigo.300}',
+        400: '{indigo.400}',
+        500: '{indigo.500}',
+        600: '{indigo.600}',
+        700: '{indigo.700}',
+        800: '{indigo.800}',
+        900: '{indigo.900}',
+        950: '{indigo.950}'
+    });
+}
+
+}
+
+// src\index.html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GobLibraryAngular</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+// src\main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { App } from './app/app';
+
+bootstrapApplication(App, appConfig)
+  .catch((err) => console.error(err));
+
+// src\styles.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+// tsconfig.app.json
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
+}
+
+// tsconfig.json
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "gla.gob.sv": [
+        "./dist/gla.gob.sv"
+      ]
+    },
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "typeCheckHostBindings": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/gla.gob.sv/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/gla.gob.sv/tsconfig.spec.json"
+    }
+  ]
+}
+
+// tsconfig.spec.json
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
+
