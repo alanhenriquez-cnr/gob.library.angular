@@ -20,11 +20,11 @@ export type InputType =     'button'    | 'checkbox'    | 'color'   | 'date'    
                         |   'url'       | 'week' 
                         ;
 
-type InputTypeString = string | null;
-type InputTypeNumber = number | null;
-type InputTypeBoolean = boolean | null;
-type InputTypeBooleanTrue = true | null;
-type InputTypeBooleanFalse = false | null;
+export type InputTypeString = string | null;
+export type InputTypeNumber = number | null;
+export type InputTypeBoolean = boolean | null;
+export type InputTypeBooleanTrue = true | null;
+export type InputTypeBooleanFalse = false | null;
 
 
 
@@ -36,6 +36,7 @@ type InputTypeBooleanFalse = false | null;
 
 @Component({
   selector: 'gla-input',
+standalone: true,
   imports: [FormsModule, InputTextModule, CommonModule],
   templateUrl: './input.html',
   styleUrl: './input.css'
@@ -78,8 +79,8 @@ export class GlaInputComponent implements OnChanges, OnInit, OnDestroy {
     public type: UseState<InputType> = useState<InputType>('text');
 
     // Texto de ayuda cuando está vacío
-    @Input() inputPlaceholder: InputTypeString = 'placeholder...';                                           
-    public placeholder: UseState<InputTypeString> = useState<InputTypeString>('placeholder...');
+    @Input() inputPlaceholder: InputTypeString = null;                                           
+    public placeholder: UseState<InputTypeString> = useState<InputTypeString>(null);
 
     // Expresión regular para validación
     @Input() inputPattern: InputTypeString = null;                                                             
@@ -126,15 +127,6 @@ export class GlaInputComponent implements OnChanges, OnInit, OnDestroy {
     @Input() inputMaxlength: InputTypeNumber = Number.MAX_VALUE;                                             // Longitud máxima (por defecto es muy alta)   
     public maxlength: UseState<InputTypeNumber> = useState<InputTypeNumber>(Number.MAX_VALUE);
 
-    @Input() inputShowErrors: InputTypeBoolean = false;                                                      // Controla si se muestran errores (viene del formulario)
-    public showErrors: UseState<InputTypeBoolean> = useState<InputTypeBoolean>(false);
-
-    @Input() inputErrorMessage: InputTypeString = null;                                                        // Mensaje de error personalizado
-    public errorMessage: UseState<InputTypeString> = useState<InputTypeString>(null);
-
-    @Input() inputCustomClass: InputTypeString = null;                                                         // Clase CSS adicional para estilos personalizados
-    public customClass: UseState<InputTypeString> = useState<InputTypeString>(null);
-
 
 
     //OUTPUTS -------------------------------------------------------------------------------------
@@ -167,9 +159,6 @@ export class GlaInputComponent implements OnChanges, OnInit, OnDestroy {
         if (changes['inputIsFocused']) this.isFocused.set(this.inputIsFocused);
         if (changes['inputMinlength']) this.minlength.set(this.inputMinlength);
         if (changes['inputMaxlength']) this.maxlength.set(this.inputMaxlength);
-        if (changes['inputShowErrors']) this.showErrors.set(this.inputShowErrors);
-        if (changes['inputErrorMessage']) this.errorMessage.set(this.inputErrorMessage);
-        if (changes['inputCustomClass']) this.customClass.set(this.inputCustomClass);
         if (changes['inputHint']) this.hint.set(this.inputHint);
     }
 
@@ -215,24 +204,11 @@ export class GlaInputComponent implements OnChanges, OnInit, OnDestroy {
     
 
     
-    logicHasValue(): string {
-        return this.value.get() ? 'has-value' : '';
-    }
+    //::::. HTML CLASSES .::::
 
-    logicFocused(): string {
-        return this.isFocused ? 'focused' : '';
-    }
-
-    logicDisabled(): string {
-        return this.disabled ? 'disabled' : '';
-    }
-    
-    logicErrorClass(): string {
-        return this.showErrors && this.errorMessage ? 'error' : '';
-    }
     
     logicInputContainerClass(): string {
-        return `${this.prefix}input-component ${this.customClass.get()} ${this.logicErrorClass()} ${this.logicDisabled()} ${this.logicFocused()} ${this.logicHasValue()}`;
+        return `${this.prefix}input-component ${this.logicDisabled()} ${this.logicFocused()} ${this.logicHasValue()}`;
     }
     
     logicInputLabelClass(): string {
@@ -245,6 +221,24 @@ export class GlaInputComponent implements OnChanges, OnInit, OnDestroy {
 
     logicInputHintClass(): string {
         return `${this.prefix}input-hint`;
+    }
+    
+
+
+    //::::. LOGICS .::::
+    
+
+    
+    logicHasValue(): string {
+        return this.value.get() ? 'has-value' : '';
+    }
+
+    logicFocused(): string {
+        return this.isFocused.get() ? 'focused' : '';
+    }
+
+    logicDisabled(): string {
+        return this.disabled.get() ? 'disabled' : '';
     }
     
     
@@ -265,7 +259,6 @@ export class GlaInputComponent implements OnChanges, OnInit, OnDestroy {
 
     
     //METHODS - GET -------------------------------------------------------------------------------
-
 
 
 

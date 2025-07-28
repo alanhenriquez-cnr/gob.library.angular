@@ -1,8 +1,8 @@
 <!-- input.html -->
-<div class="card flex justify-center">
-  <div class="flex flex-col gap-2" [class]="logicInputContainerClass()"> 
+<div class="card flex justify-center" [class]="logicInputContainerClass()">
+  <div class="flex flex-col gap-2"> 
     <!-- Label -->
-    <label [attr.for]="idValueToLabelFor()"> {{ label.get() }} </label>
+    <label [attr.for]="idValueToLabelFor()" [attr.class]="logicInputLabelClass()"> {{ label.get() }} </label>
 
 
 
@@ -26,14 +26,9 @@
       (blur)="onBlur()"
     />
 
+
+
     <!-- Helper Text / Error Message -->
-    <small 
-      [attr.id]="id.get()">
-      <span *ngIf="showErrors.get() && errorMessage.get(); else defaultHelp">{{ errorMessage.get() }}</span>
-      <ng-template #defaultHelp>
-        <!-- Puedes colocar aquí un texto de ayuda predeterminado si lo deseas, o dejarlo vacío -->
-        <!-- <span>Enter your {{ label.get() }}.</span> --> 
-      </ng-template>
-    </small>
+    <small [attr.class]="logicInputHintClass()">{{hint.get()}}</small>
   </div>
 </div>

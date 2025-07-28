@@ -4,7 +4,9 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { updatePrimaryPalette } from '@primeuix/themes';
-import { GlaInputComponent } from '../../projects/gla.gob.sv/src/lib/components/input/input';
+import { GlaInputComponent } from 'gla.gob.sv';
+
+
 
 @Component({
   selector: 'app-root',
