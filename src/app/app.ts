@@ -4,10 +4,11 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { updatePrimaryPalette } from '@primeuix/themes';
+import { GlaInputComponent } from '../../projects/gla.gob.sv/src/lib/components/input/input';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonModule, FormsModule, InputTextModule],
+  imports: [RouterOutlet, ButtonModule, FormsModule, InputTextModule, GlaInputComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,

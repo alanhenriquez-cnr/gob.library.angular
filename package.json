@@ -4,9 +4,30 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:host": "ng serve --port 4200 --host 0.0.0.0 -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate": "ng generate",
+    "g": "ng generate",
+    "gc": "ng generate component",
+    "gs": "ng generate service",
+    "gm": "ng generate module",
+    "gp": "ng generate pipe",
+    "gg": "ng generate guard",
+    "gi": "ng generate interceptor",
+    "gd": "ng generate directive",
+    "gcl": "ng generate class",
+    "ge": "ng generate enum",
+    "ginterface": "ng generate interface",
+    "gr": "ng generate resolver",
+    "build:lib": "ng build gla.gob.sv",
+    "build:lib:watch": "ng build gla.gob.sv --watch",
+    "link:lib": "cd dist/gla.gob.sv && npm link",
+    "build-and-serve": "ng build gla.gob.sv && ng serve",
+    "pack": "npm run build:lib && npm run link:lib && npm link gla.gob.sv",
+    "dnlib": "npm link gla.gob.sv",
+    "udnlib": "npm unlink gla.gob.sv"
   },
   "prettier": {
     "overrides": [
