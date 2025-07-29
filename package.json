@@ -21,13 +21,15 @@
     "ge": "ng generate enum",
     "ginterface": "ng generate interface",
     "gr": "ng generate resolver",
-    "build:lib": "ng build gla.gob.sv",
     "build:lib:watch": "ng build gla.gob.sv --watch",
-    "link:lib": "cd dist/gla.gob.sv && npm link",
     "build-and-serve": "ng build gla.gob.sv && ng serve",
-    "pack": "npm run build:lib && npm run link:lib && npm link gla.gob.sv",
-    "dnlib": "npm link gla.gob.sv",
-    "udnlib": "npm unlink gla.gob.sv"
+    
+    "gla:build": "ng build gla.gob.sv",
+    "gla:link": "cd dist/gla.gob.sv && npm link",
+    "gla:get": "npm link gla.gob.sv",
+    "gla:not": "npm unlink gla.gob.sv",
+    "gla:pack": "npm run gla:build && npm run gla:link && npm run gla:get",
+    "gla:copy": "powershell -Command \"New-Item -ItemType Directory -Force -Path public/assets/gla.gob.sv/assets/imagenes; Copy-Item -Path node_modules/gla.gob.sv/src/assets/imagenes/* -Destination public/assets/gla.gob.sv/assets/imagenes -Recurse -Force\""
   },
   "prettier": {
     "overrides": [
@@ -62,7 +64,6 @@
     "@angular/compiler-cli": "^20.1.0",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.21",
-    "copyfiles": "^2.4.1",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
