@@ -3,5 +3,9 @@
   "dest": "../../dist/gla.gob.sv",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    "src/lib/**/*.css",
+    "src/assets/**/*"
+  ]
 }

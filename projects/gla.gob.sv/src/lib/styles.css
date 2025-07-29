@@ -1,0 +1,392 @@
+
+
+/* ============================================================================================= */
+/* ROOTS ======================================================================================= */
+/* ============================================================================================= */
+
+
+
+@font-face {
+  font-family: 'Bembo Std';
+  src: url('/public/assets/fonts/BemboStd-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bembo Std';
+  src: url('/public/assets/fonts/Bembo-Std_6601.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Museo Sans - Normal weights */
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans-100.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans-300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans_500.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans_700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans_900.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Museo Sans - Italic weights */
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans-100Italic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans-300Italic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans_500_Italic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans-700Italic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/public/assets/fonts/Museo Sans/MuseoSans-900Italic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+
+/* ============================================================================================= */
+/* ROOTS ======================================================================================= */
+/* ============================================================================================= */
+
+
+
+/* CAPA 1 */
+/* --------------------------------------- */
+/* colors -------------------------------- */
+/* --------------------------------------- */
+
+
+    
+:root {
+
+
+
+    /* especiales ++++++++++++++++++++++++++++ */
+
+
+
+    --colors-mainGray: #3c4557;
+    --colors-white: #ffffff;
+    --colors-whiteSmoke: #F2F4F3;
+    --colors-whiteSmokeCream: #F6F4F3;
+    --colors-black: #0A0908;
+    --colors-richBlack: #04151F;
+    --colors-chocolateCosmos: #49111C; 
+    --colors-selectiveYellow: #FFB100; 
+    --colors-midnightGreen: #003844; 
+    --colors-cadetGray: #7C9299; 
+    --colors-softGray: #cccccc; 
+    --colors-licorine: #191516; 
+    --colors-celticBlue: #276FBF; 
+    --colors-delftBlue: #183059; 
+    --colors-imperialRed: #F03A47; 
+    --colors-charcoal: #2F4858; 
+    --colors-orangePantone: #F26419; 
+
+    
+
+    /* institucionales +++++++++++++++++++++++ */
+
+
+
+    --gs-blue: #1c1e4d;       
+    --gs-dark-gray: #313945;  
+    --gs-beige: #c9a892;      
+    --gs-gray-10: #d2d2d2;    
+    --gs-white: #ffffff;
+    --gs-info: #2a5c8d;         
+    --gs-success: #3a7d44;      
+    --gs-warning: #d4a017;     
+    --gs-danger: #9e2a2a;
+    --gs-dark: #343a40; 
+    --gs-light: #f8f9fa;   
+    --gs-info-light: #e1f0fa;
+    --gs-success-light: #e6f4e6;
+    --gs-warning-light: #fff8e6;
+    --gs-danger-light: #fce8e8;
+    --logo-primary: var(--gs-blue);
+    --logo-secondary: var(--gs-dark-gray);
+    --logo-light: var(--gs-white);
+}
+
+
+    
+/* CAPA 2 */
+/* --------------------------------------- */
+/* units --------------------------------- */
+/* --------------------------------------- */
+
+
+
+:root {
+
+
+
+    /* radios ++++++++++++++++++++++++++++++++ */
+
+
+
+    --borderRadiusXSmall: 0.25vw;
+    --borderRadiusXXSmall: 0.15vw;
+    --borderRadiusXXXSmall: 0.1vw;
+
+    --borderRadiusSmall: 0.5vw;
+    --borderRadiusSmallX: 0.75vw;
+    --borderRadiusSmallXX: 1vw;
+    --borderRadiusSmallXXX: 1.25vw;
+    --borderRadiusMedium: 1.5vw;
+    --borderRadiusLarge: 2.5vw;
+
+    --borderRadiusXLarge: 3.5vw;
+    --borderRadiusXXLarge: 4.5vw;
+    --borderRadiusXXXLarge: 6vw;
+
+
+
+    /* anchos de borde +++++++++++++++++++++++ */
+
+
+
+    --borderWidthXSmall: 0.05vw;
+    --borderWidthXXSmall: 0.03vw;
+    --borderWidthXXXSmall: 0.01vw;
+
+    --borderWidthSmall: 0.15vw;
+    --borderWidthMedium: 0.25vw;
+    --borderWidthLarge: 0.4vw;
+
+    --borderWidthXLarge: 0.6vw;
+    --borderWidthXXLarge: 0.8vw;
+    --borderWidthXXXLarge: 1vw;
+
+
+
+    /* tamaños de fuentes ++++++++++++++++++++ */
+    
+    
+    
+    --fontSizeXXXSmall: 0.25vw;
+    --fontSizeXXSmall: 0.4vw;
+    --fontSizeXSmall: 0.6vw;
+    --fontSizeSmall: 0.8vw;
+    --fontSizeXSmall: 0.85vw;
+    --fontSizeXXSmall: 0.9vw;
+    --fontSizeXXXSmall: 0.95vw;
+    
+    --fontSizeXXXMedium: 0.96vw;
+    --fontSizeXXMedium: 0.97vw;
+    --fontSizeXMedium: 0.98vw;
+    --fontSizeMedium: 1vw;
+    --fontSizeMediumX: 1.1vw;
+    --fontSizeMediumXX: 1.2vw;
+    --fontSizeMediumXXX: 1.3vw;
+    
+    --fontSizeLarge: 1.4vw;
+    --fontSizeXLarge: 1.8vw;
+    --fontSizeXXLarge: 2.4vw;
+    --fontSizeXXXLarge: 3.2vw;
+}
+
+
+
+/* CAPA 3 */
+/* --------------------------------------- */
+/* parsers ------------------------------- */
+/* --------------------------------------- */
+
+
+
+:root {
+    --color-p: var(--colors-richBlack);
+    --color-s: var(--colors-whiteSmoke);
+    --color-1: var(--gs-info);
+    --color-2: var(--gs-success);
+    --color-3: var(--gs-warning);
+    --color-4: var(--gs-danger);
+    --color-5: var(--gs-dark);
+    --color-6: var(--gs-light);
+    --color-7: var(--colors-cadetGray);
+    --color-8: var(--colors-mainGray);
+    --color-9: var(--colors-softGray);
+
+    --fontSize-p: var(--fontSizeMedium);
+    --fontSize-s: var(--fontSizeSmall);
+    --fontSize-1: var(--fontSizeXXXSmall);
+    --fontSize-2: var(--fontSizeXLarge);
+    --fontSize-3: var(--fontSizeXXLarge);
+    --fontSize-4: var(--fontSizeXXXLarge);
+
+    --borderSize-p: var(--borderWidthXSmall);
+    --borderSize-s: var(--borderWidthSmall);
+    --borderSize-1: var(--borderWidthMedium);
+    --borderSize-2: var(--borderWidthLarge);
+    --borderSize-3: var(--borderWidthXLarge);
+    --borderSize-4: var(--borderWidthXXLarge);
+
+    --borderRadius-p: var(--borderRadiusXSmall);
+    --borderRadius-s: var(--borderRadiusSmall);
+    --borderRadius-1: var(--borderRadiusMedium);
+    --borderRadius-2: var(--borderRadiusLarge);
+    --borderRadius-3: var(--borderRadiusXLarge);
+}
+
+
+
+/* CAPA 4 */
+/* --------------------------------------- */
+/* components ---------------------------- */
+/* --------------------------------------- */
+
+
+
+:root {
+
+
+    
+    /* CONTENTS //////////////////////////////////////////////////////////// */
+    /* ///////////////////////////////////////////////////////////////////// */
+
+
+
+    --contentBackground1: var(--colors-white);
+    --contentBackground2: var(--colors-mainGray);
+    --contentBackground3: var(--colors-whiteSmoke);
+    --contentBackgroundLG1: linear-gradient(0deg, rgba(13, 13, 14, 1) 0%, rgba(60, 69, 87, 1) 39%, rgba(33, 30, 30, 1) 100%);
+    --contentBackgroundLG2: linear-gradient(-45deg, #384047, #3c4557, #454e57, #3c4557, #3c4557, #424b53, #3c4557);
+    --contentBorder1: var(--borderWidthXSmall) solid var(--colorBorder5);
+    --contentBorder2: var(--borderWidthXSmall) solid var(--colorBorder4);
+    --contentBorderLeft1: var(--borderWidthMedium) solid var(--colorBorder4);
+    --contentBoxShadow: 0 1vw 1.5vw rgba(0, 0, 0, 0.25), 0 1vw 1vw rgba(0, 0, 0, 0.22);
+
+
+
+    /* BUTTON ////////////////////////////////////////////////////////////// */
+    /* ///////////////////////////////////////////////////////////////////// */
+
+
+
+    --buttonColor1: var(--colorText1);
+    --buttonBorder1: var(--borderWidthXSmall) solid var(--colorBorder5);
+    --buttonBorder1Mobile: var(--borderWidthXLarge) solid var(--colorBorder5);
+    --buttonBackground1: var(--colors-richBlack);
+
+
+    
+    /* INPUT ////////////////////////////////////////////////////////////// */
+    /* ///////////////////////////////////////////////////////////////////// */
+
+
+
+    --inputColor1: var(--colorText2);
+    --inputBorder1: var(--borderWidthXSmall) solid var(--colorBorder4);
+    --inputBorder1Mobile: var(--borderWidthLarge) solid var(--colorBorder4);
+    --inputBorder1Hover: var(--borderWidthXSmall) solid var(--colors-selectiveYellow);
+    --inputBorder1Focus: var(--borderWidthXSmall) solid var(--colors-selectiveYellow);
+    --inputBackground1: var(--colors-white);
+
+    --inputBorder: var(--borderSize-p) solid var(--color-9);
+    --inputBorderRadius: var(--borderRadius-s);
+
+
+}
+
+
+
+/* ============================================================================================= */
+/* MAIN CONFIGURATION ========================================================================== */
+/* ============================================================================================= */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: inherit;
+    box-sizing: border-box;
+    color: inherit;
+    outline: none;
+    font-size: inherit;
+    list-style: none;
+    line-height: auto;
+    font-family: "Roboto";
+    transition: all 0.3s ease;
+    font-weight: inherit;
+    text-transform: inherit;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    color: var(--colorText2);
+    font-size: 1vw;
+    font-weight: 300;
+}
+
+body.mobile.portrait {
+    font-size: 4vw;
+}
+
+

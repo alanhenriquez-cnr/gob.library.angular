@@ -4,7 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { updatePrimaryPalette } from '@primeuix/themes';
-import { GlaInputComponent } from 'gla.gob.sv';
+import { gla_images_logoCNR, gla_styles, GlaInputComponent } from 'gla.gob.sv';
 
 
 
@@ -16,9 +16,12 @@ import { GlaInputComponent } from 'gla.gob.sv';
   standalone: true,
 })
 export class App {
+  protected readonly path = gla_images_logoCNR;
+  public img = gla_images_logoCNR;
   protected readonly title = signal('gob.library.angular');
 
-  value: string | undefined;
+
+  value: string = this.path;
 
   toggleDarkMode() {
     const element = document.querySelector('html');

@@ -5,7 +5,7 @@
     "@angular/common": "^20.1.0",
     "@angular/core": "^20.1.0",
     "@angular/forms": "^20.1.0",
-    "primeng": "^20.0.0",
+    "primeng": "^20.1.0",
     "@primeuix/themes": "^1.2.1",
     "primeicons": "^7.0.0"
   },

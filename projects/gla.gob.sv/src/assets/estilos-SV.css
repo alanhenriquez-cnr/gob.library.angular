@@ -1,0 +1,1107 @@
+/* ==========================================================================
+   SISTEMA DE DISEÑO - GOBIERNO DE EL SALVADOR
+   ========================================================================== */
+
+/* ==========================================================================
+   DECLARACIONES DE FUENTES
+   ========================================================================== */
+@font-face {
+  font-family: 'Bembo Std';
+  src: url('../assets/fonts/BemboStd-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bembo Std';
+  src: url('../assets/fonts/Bembo-Std_6601.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Museo Sans - Normal weights */
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans-100.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans-300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans_500.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans_700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans_900.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Museo Sans - Italic weights */
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans-100Italic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans-300Italic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans_500_Italic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans-700Italic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../assets/fonts/Museo Sans/MuseoSans-900Italic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   VARIABLES CSS - PALETA DE COLORES                                          */
+/* ========================================================================== */
+:root {
+  /* Colores Primarios */
+  --gs-blue: #1c1e4d;       /* PANTONE 281 C */
+  --gs-dark-gray: #313945;  /* PANTONE 432 C */
+  --gs-beige: #c9a892;      /* PANTONE 7604 C */
+
+  /* Colores Secundarios */
+  --gs-gray-10: #d2d2d2;    /* 10% gray for backgrounds */
+  --gs-white: #ffffff;
+
+  /* Paleta Extendida */
+  --gs-info: #2a5c8d;         /* Azul más oscuro que armoniza con el azul institucional */
+  --gs-success: #3a7d44;      /* Verde oscuro que complementa la paleta sobria */
+  --gs-warning: #d4a017;      /* Dorado oscuro en lugar de amarillo brillante */
+  --gs-danger: #9e2a2a;       /* Rojo vino oscuro */
+  --gs-dark: #343a40;       /* Dark gray */
+  --gs-light: #f8f9fa;      /* Light gray */
+
+  /* Variantes Claras */
+  --gs-info-light: #e1f0fa;
+  --gs-success-light: #e6f4e6;
+  --gs-warning-light: #fff8e6;
+  --gs-danger-light: #fce8e8;
+
+  /* Colores del Logo */
+  --logo-primary: var(--gs-blue);
+  --logo-secondary: var(--gs-dark-gray);
+  --logo-light: var(--gs-white);
+
+  /* Espaciado y Dimensiones */
+  --gs-border-radius: 0.25rem;
+  --gs-border-radius-lg: 0.5rem;
+  --gs-padding-sm: 0.375rem 0.75rem;
+  --gs-padding-md: 0.75rem 1.25rem;
+  --gs-padding-lg: 1.25rem;
+  --gs-padding-xl: 1.5rem;
+  --gs-margin-sm: 0.5rem;
+  --gs-margin-md: 1rem;
+  --gs-margin-lg: 1.5rem;
+  --gs-margin-xl: 2rem;
+
+  /* Sombras */
+  --gs-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --gs-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --gs-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+  /* Transiciones */
+  --gs-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  /* Grises y colores de ejemplo */
+  --gs-gray-border: #b0b0b0;
+  --gs-gray-muted: #6c757d;
+  --gs-gray-swatch: #ccc;
+  --gs-gray-light-text: #333;
+  --gs-gray-bg-demo: #ececec;
+}
+
+/* ==========================================================================
+   TIPOGRAFÍA
+   ========================================================================== */
+.gs-heading {
+  font-family: 'Bembo Std', serif;
+  font-weight: normal;
+}
+
+.gs-body {
+  font-family: 'Museo Sans', sans-serif;
+  font-weight: 300;
+}
+
+h1, .h1 {
+  font-family: 'Bembo Std', serif;
+  font-weight: normal;
+  font-size: 2.5rem;
+  color: var(--gs-blue);
+  margin-bottom: var(--gs-margin-lg);
+}
+
+h2, .h2 {
+  font-family: 'Bembo Std', serif;
+  font-weight: normal;
+  font-size: 2rem;
+  color: var(--gs-dark-gray);
+  margin-bottom: 1.25rem;
+}
+
+h3, .h3 {
+  font-family: 'Bembo Std', serif;
+  font-weight: normal;
+  font-size: 1.75rem;
+  color: var(--gs-dark-gray);
+  margin-bottom: var(--gs-margin-md);
+}
+
+/* ==========================================================================
+   COMPONENTES - TARJETAS
+   ========================================================================== */
+.gs-card {
+  font-family: 'Museo Sans', sans-serif;
+  font-weight: 300;
+  border: 1px solid var(--gs-gray-10);
+  border-radius: var(--gs-border-radius);
+  padding: var(--gs-padding-xl);
+  margin-bottom: var(--gs-margin-lg);
+  background-color: var(--gs-white);
+  box-shadow: var(--gs-shadow-sm);
+}
+
+.gs-card-header {
+  font-family: 'Bembo Std', serif;
+  font-weight: normal;
+  padding: var(--gs-padding-md);
+  margin-bottom: 0;
+  background-color: var(--gs-dark-gray); /* antes #303845 */
+  border-bottom: 1px solid var(--gs-gray-10);
+  font-size: 1.25rem;
+  color: var(--gs-white);
+}
+
+.gs-card-body {
+  padding: var(--gs-padding-lg);
+}
+
+.gs-card-footer {
+  padding: var(--gs-padding-md);
+  background-color: var(--gs-gray-10);
+  border-top: 1px solid var(--gs-gray-10);
+}
+
+.gs-card-body-bordered {
+  border: 1px solid var(--gs-gray-border); /* antes #b0b0b0 */
+  border-radius: var(--gs-border-radius);
+  padding: 15px;
+}
+
+/* ==========================================================================
+   COMPONENTES - PLACEHOLDERS
+   ========================================================================== */
+.gs-placeholder {
+  display: inline-block;
+  min-height: 1em;
+  vertical-align: middle;
+  cursor: default;
+  background-color: var(--gs-gray-10);
+  opacity: 0.5;
+}
+
+.gs-placeholder-xs {
+  min-height: 0.6em;
+}
+
+.gs-placeholder-sm {
+  min-height: 0.8em;
+}
+
+.gs-placeholder-lg {
+  min-height: 1.2em;
+}
+
+.gs-placeholder-glow .gs-placeholder {
+  animation: gs-placeholder-glow 2s ease-in-out infinite;
+}
+
+@keyframes gs-placeholder-glow {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.gs-placeholder-wave {
+  mask-image: linear-gradient(
+    130deg,
+    #000 55%,
+    rgba(0, 0, 0, 0.8) 75%,
+    #000 95%
+  );
+  mask-size: 200% 100%;
+  animation: gs-placeholder-wave 2s linear infinite;
+}
+
+@keyframes gs-placeholder-wave {
+  100% {
+    mask-position: -200% 0%;
+  }
+}
+
+/* ==========================================================================
+   COMPONENTES - BOTONES
+   ========================================================================== */
+.gs-btn {
+  font-family: 'Museo Sans', sans-serif;
+  font-weight: 500;
+  display: inline-block;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: var(--gs-padding-sm);
+  font-size: 1rem;
+  border-radius: var(--gs-border-radius);
+  transition: var(--gs-transition);
+}
+
+/* Botones Sólidos */
+.gs-btn-primary {
+  color: var(--gs-white);
+  background-color: var(--gs-blue);
+  border-color: var(--gs-blue);
+}
+
+.gs-btn-primary:hover {
+  background-color: #151a3a;
+  border-color: #151a3a;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-secondary {
+  color: var(--gs-white);
+  background-color: var(--gs-dark-gray);
+  border-color: var(--gs-dark-gray);
+}
+
+.gs-btn-secondary:hover {
+  background-color: #1f2530;
+  border-color: #1d2124;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-info {
+  color: var(--gs-white);
+  background-color: var(--gs-info);
+  border-color: var(--gs-info);
+}
+
+.gs-btn-info:hover {
+  background-color: #138496;
+  border-color: #138496;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-success {
+  color: var(--gs-white);
+  background-color: var(--gs-success);
+  border-color: var(--gs-success);
+}
+
+.gs-btn-success:hover {
+  background-color: #1e7e34;
+  border-color: #1e7e34;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-warning {
+  color: #212529;
+  background-color: var(--gs-warning);
+  border-color: var(--gs-warning);
+}
+
+.gs-btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-danger {
+  color: var(--gs-white);
+  background-color: var(--gs-danger);
+  border-color: var(--gs-danger);
+}
+
+.gs-btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-dark {
+  color: var(--gs-white);
+  background-color: var(--gs-dark);
+  border-color: var(--gs-dark);
+}
+
+.gs-btn-dark:hover {
+  background-color: #23272b;
+  border-color: #1d2124;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-light {
+  color: #212529;
+  background-color: var(--gs-light);
+  border-color: var(--gs-light);
+}
+
+.gs-btn-light:hover {
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+/* Botones Outline */
+.gs-btn-outline-primary {
+  color: var(--gs-blue);
+  border-color: var(--gs-blue);
+}
+
+.gs-btn-outline-primary:hover {
+  background-color: var(--gs-blue);
+  color: var(--gs-white);
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-outline-secondary {
+  color: var(--gs-dark-gray);
+  border-color: var(--gs-dark-gray);
+}
+
+.gs-btn-outline-secondary:hover {
+  background-color: var(--gs-dark-gray);
+  color: var(--gs-white);
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-outline-info {
+  color: var(--gs-info);
+  border-color: var(--gs-info);
+}
+
+.gs-btn-outline-info:hover {
+  background-color: var(--gs-info);
+  color: var(--gs-white);
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-outline-success {
+  color: var(--gs-success);
+  border-color: var(--gs-success);
+}
+
+.gs-btn-outline-success:hover {
+  background-color: var(--gs-success);
+  color: var(--gs-white);
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-outline-warning {
+  color: var(--gs-warning);
+  border-color: var(--gs-warning);
+}
+
+.gs-btn-outline-warning:hover {
+  background-color: var(--gs-warning);
+  color: #212529;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-outline-danger {
+  color: var(--gs-danger);
+  border-color: var(--gs-danger);
+}
+
+.gs-btn-outline-danger:hover {
+  background-color: var(--gs-danger);
+  color: var(--gs-white);
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-outline-dark {
+  color: var(--gs-dark);
+  border-color: var(--gs-dark);
+}
+
+.gs-btn-outline-dark:hover {
+  background-color: var(--gs-dark);
+  color: var(--gs-white);
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+.gs-btn-outline-light {
+  color: #6c757d;
+  border-color: var(--gs-light);
+}
+
+.gs-btn-outline-light:hover {
+  background-color: var(--gs-light);
+  color: #212529;
+  transform: translateY(-1px);
+  box-shadow: var(--gs-shadow-md);
+}
+
+/* ==========================================================================
+   UTILIDADES - FONDOS
+   ========================================================================== */
+.gs-bg-primary {
+  background-color: var(--gs-blue);
+  color: var(--gs-white);
+}
+
+.gs-bg-secondary {
+  background-color: var(--gs-dark-gray);
+  color: var(--gs-white);
+}
+
+.gs-bg-light {
+  background-color: var(--gs-gray-10);
+  color: var(--gs-dark-gray);
+  border: 1px solid var(--gs-gray-border); /* antes #b0b0b0 */
+}
+
+.gs-bg-info {
+  background-color: var(--gs-info);
+  color: var(--gs-white);
+}
+
+.gs-bg-success {
+  background-color: var(--gs-success);
+  color: var(--gs-white);
+}
+
+.gs-bg-warning {
+  background-color: var(--gs-warning);
+  color: #212529;
+}
+
+.gs-bg-danger {
+  background-color: var(--gs-danger);
+  color: var(--gs-white);
+}
+
+.gs-bg-dark {
+  background-color: var(--gs-dark);
+  color: var(--gs-white);
+}
+
+.gs-bg-light-extended {
+  background-color: var(--gs-light);
+  color: #212529;
+}
+
+/* Variantes Claras */
+.gs-bg-info-light {
+  background-color: var(--gs-info-light);
+  color: var(--gs-info);
+  border: 1px solid var(--gs-gray-border); /* antes #b0b0b0 */
+}
+
+.gs-bg-success-light {
+  background-color: var(--gs-success-light);
+  color: var(--gs-success);
+  border: 1px solid var(--gs-gray-border); /* antes #b0b0b0 */
+}
+
+.gs-bg-warning-light {
+  background-color: var(--gs-warning-light);
+  color: var(--gs-warning);
+  border: 1px solid var(--gs-gray-border); /* antes #b0b0b0 */
+}
+
+.gs-bg-danger-light {
+  background-color: var(--gs-danger-light);
+  color: var(--gs-danger);
+  border: 1px solid var(--gs-gray-border); /* antes #b0b0b0 */
+}
+
+/* ==========================================================================
+   UTILIDADES - TEXTOS
+   ========================================================================== */
+.gs-text-primary {
+  color: var(--gs-blue);
+}
+
+.gs-text-secondary {
+  color: var(--gs-dark-gray);
+}
+
+.gs-text-light {
+  color: var(--gs-gray-10);
+}
+
+.gs-text-info {
+  color: var(--gs-info);
+}
+
+.gs-text-success {
+  color: var(--gs-success);
+}
+
+.gs-text-warning {
+  color: var(--gs-warning);
+}
+
+.gs-text-danger {
+  color: var(--gs-danger);
+}
+
+.gs-text-dark {
+  color: var(--gs-dark);
+}
+
+.gs-text-muted {
+  color: var(--gs-gray-muted); /* antes #6c757d */
+}
+
+/* ==========================================================================
+   UTILIDADES - LAYOUT
+   ========================================================================== */
+.gs-flex {
+  display: flex;
+}
+
+.gs-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gs-gap-10 {
+  gap: 10px;
+}
+
+.gs-gap-16 {
+  gap: 16px;
+}
+
+.gs-mb-20 {
+  margin-bottom: 20px;
+}
+
+.gs-mb-24 {
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   UTILIDADES - COMPONENTES ESPECÍFICOS
+   ========================================================================== */
+/* Color swatches */
+.gs-color-swatch {
+  width: 160px;
+  height: 80px;
+  border: 1px solid var(--gs-gray-swatch); /* antes #ccc */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.0 rem;
+  text-align: center;
+  line-height: 0.9; /* Ajuste compacto */
+}
+
+.gs-color-swatch-light {
+  color: var(--gs-gray-light-text); /* antes #333 */
+}
+
+.gs-color-swatch-dark {
+  color: var(--gs-white);
+}
+
+/* Button spacing */
+.gs-btn-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.gs-btn + .gs-btn {
+  margin-left: 10px;
+}
+
+/* Placeholder containers */
+.gs-placeholder-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.gs-placeholder-demo {
+  width: 100%;
+  height: 20px;
+}
+
+.gs-placeholder-wave-demo {
+  width: 100%;
+  height: 20px;
+  background: var(--gs-gray-10);
+  margin-bottom: 20px;
+}
+
+/* Background demo */
+.gs-bg-demo {
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Content spacing */
+.gs-content-spacing {
+  margin-top: 15px;
+}
+
+.gs-note-box {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+  h1, .h1 {
+    font-size: 2rem;
+  }
+
+  h2, .h2 {
+    font-size: 1.75rem;
+  }
+
+  h3, .h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========================================================================== */
+/* UTILIDADES - CLASES COMUNES (Inspiradas en Bootstrap)                      */
+/* ========================================================================== */
+
+/* Alineación de texto */
+.gs-text-center { text-align: center !important; }
+.gs-text-left   { text-align: left !important; }
+.gs-text-right  { text-align: right !important; }
+.gs-text-justify { text-align: justify !important; }
+
+/* Peso de fuente */
+.gs-fw-bold   { font-weight: bold !important; }
+.gs-fw-normal { font-weight: normal !important; }
+.gs-fw-light  { font-weight: 300 !important; }
+
+/* Display */
+.gs-d-block  { display: block !important; }
+.gs-d-inline { display: inline !important; }
+.gs-d-inline-block { display: inline-block !important; }
+.gs-d-flex   { display: flex !important; }
+.gs-d-none   { display: none !important; }
+
+/* Espaciados (margen y padding) */
+.gs-m-0  { margin: 0 !important; }
+.gs-m-1  { margin: 0.25rem !important; }
+.gs-m-2  { margin: 0.5rem !important; }
+.gs-m-3  { margin: 1rem !important; }
+.gs-m-4  { margin: 1.5rem !important; }
+.gs-m-5  { margin: 3rem !important; }
+
+.gs-mt-0 { margin-top: 0 !important; }
+.gs-mt-1 { margin-top: 0.25rem !important; }
+.gs-mt-2 { margin-top: 0.5rem !important; }
+.gs-mt-3 { margin-top: 1rem !important; }
+.gs-mt-4 { margin-top: 1.5rem !important; }
+.gs-mt-5 { margin-top: 3rem !important; }
+
+.gs-mb-0 { margin-bottom: 0 !important; }
+.gs-mb-1 { margin-bottom: 0.25rem !important; }
+.gs-mb-2 { margin-bottom: 0.5rem !important; }
+.gs-mb-3 { margin-bottom: 1rem !important; }
+.gs-mb-4 { margin-bottom: 1.5rem !important; }
+.gs-mb-5 { margin-bottom: 3rem !important; }
+
+.gs-ml-0 { margin-left: 0 !important; }
+.gs-ml-1 { margin-left: 0.25rem !important; }
+.gs-ml-2 { margin-left: 0.5rem !important; }
+.gs-ml-3 { margin-left: 1rem !important; }
+.gs-ml-4 { margin-left: 1.5rem !important; }
+.gs-ml-5 { margin-left: 3rem !important; }
+
+.gs-mr-0 { margin-right: 0 !important; }
+.gs-mr-1 { margin-right: 0.25rem !important; }
+.gs-mr-2 { margin-right: 0.5rem !important; }
+.gs-mr-3 { margin-right: 1rem !important; }
+.gs-mr-4 { margin-right: 1.5rem !important; }
+.gs-mr-5 { margin-right: 3rem !important; }
+
+.gs-p-0  { padding: 0 !important; }
+.gs-p-1  { padding: 0.25rem !important; }
+.gs-p-2  { padding: 0.5rem !important; }
+.gs-p-3  { padding: 1rem !important; }
+.gs-p-4  { padding: 1.5rem !important; }
+.gs-p-5  { padding: 3rem !important; }
+
+.gs-pt-0 { padding-top: 0 !important; }
+.gs-pt-1 { padding-top: 0.25rem !important; }
+.gs-pt-2 { padding-top: 0.5rem !important; }
+.gs-pt-3 { padding-top: 1rem !important; }
+.gs-pt-4 { padding-top: 1.5rem !important; }
+.gs-pt-5 { padding-top: 3rem !important; }
+
+.gs-pb-0 { padding-bottom: 0 !important; }
+.gs-pb-1 { padding-bottom: 0.25rem !important; }
+.gs-pb-2 { padding-bottom: 0.5rem !important; }
+.gs-pb-3 { padding-bottom: 1rem !important; }
+.gs-pb-4 { padding-bottom: 1.5rem !important; }
+.gs-pb-5 { padding-bottom: 3rem !important; }
+
+.gs-pl-0 { padding-left: 0 !important; }
+.gs-pl-1 { padding-left: 0.25rem !important; }
+.gs-pl-2 { padding-left: 0.5rem !important; }
+.gs-pl-3 { padding-left: 1rem !important; }
+.gs-pl-4 { padding-left: 1.5rem !important; }
+.gs-pl-5 { padding-left: 3rem !important; }
+
+.gs-pr-0 { padding-right: 0 !important; }
+.gs-pr-1 { padding-right: 0.25rem !important; }
+.gs-pr-2 { padding-right: 0.5rem !important; }
+.gs-pr-3 { padding-right: 1rem !important; }
+.gs-pr-4 { padding-right: 1.5rem !important; }
+.gs-pr-5 { padding-right: 3rem !important; }
+
+/* Ancho y alto */
+.gs-w-100 { width: 100% !important; }
+.gs-w-75  { width: 75% !important; }
+.gs-w-50  { width: 50% !important; }
+.gs-w-25  { width: 25% !important; }
+.gs-h-100 { height: 100% !important; }
+
+/* Alineación vertical y horizontal con flex */
+.gs-align-items-start    { align-items: flex-start !important; }
+.gs-align-items-center   { align-items: center !important; }
+.gs-align-items-end      { align-items: flex-end !important; }
+.gs-justify-content-start  { justify-content: flex-start !important; }
+.gs-justify-content-center { justify-content: center !important; }
+.gs-justify-content-end    { justify-content: flex-end !important; }
+.gs-justify-content-between { justify-content: space-between !important; }
+.gs-justify-content-around  { justify-content: space-around !important; }
+.gs-justify-content-evenly  { justify-content: space-evenly !important; }
+
+/* Alineación de self */
+.gs-align-self-start  { align-self: flex-start !important; }
+.gs-align-self-center { align-self: center !important; }
+.gs-align-self-end    { align-self: flex-end !important; }
+
+/* Otros */
+.gs-rounded    { border-radius: 0.25rem !important; }
+.gs-rounded-lg { border-radius: 0.5rem !important; }
+.gs-shadow     { box-shadow: 0 2px 8px rgba(210, 210, 210, 0.22) !important; }
+.gs-shadow-lg  { box-shadow: 0 8px 32px rgba(210, 210, 210, 0.32) !important; }
+
+/* Bordes más notorios y grises para demo */
+.gs-rounded, .gs-rounded-lg {
+  border: 2px solid var(--gs-gray-10) !important; /* antes #d2d2d2 */
+}
+
+/* Grid demo para utilidades */
+.gs-grid-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+.gs-grid-cell {
+  background: var(--gs-light);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: var(--gs-shadow-sm);
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin: 0;
+}
+.gs-grid-cell-center {
+  align-items: center;
+  justify-content: center;
+}
+.gs-grid-cell .gs-class-name {
+  font-size: 0.9rem;
+  color: var(--gs-dark-gray);
+  margin-top: 0.5rem;
+  font-family: monospace;
+  background: var(--gs-gray-bg-demo); /* antes #ececec */
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ========================================================================== */
+/* ESTILOS BASE PARA <span> Y <p>                                            */
+/* ========================================================================== */
+span {
+  font-family: 'Museo Sans', sans-serif;
+  font-weight: 400;
+  color: var(--gs-dark-gray);
+  font-size: 1rem;
+}
+
+p {
+  font-family: 'Museo Sans', sans-serif;
+  font-weight: 300;
+  color: var(--gs-dark-gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.gs-alert {
+  padding: 1rem 1.5rem;
+  border-radius: var(--gs-border-radius-lg);
+  margin-bottom: 1rem;
+  border: 1px solid var(--gs-gray-border);
+  font-family: 'Museo Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  box-shadow: var(--gs-shadow-sm);
+  display: block;
+}
+
+html, body {
+  scroll-padding-top: 160px;
+  scroll-behavior: smooth;
+}
+@media (max-width: 768px) {
+  html, body {
+    scroll-padding-top: 110px;
+  }
+}
+
+nav.gs-card[style] {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+nav.gs-card[style] h1, nav.gs-card[style] h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+body {
+  background-image: none;
+  background-repeat: initial;
+  background-position: initial;
+  background-size: initial;
+}
+body::before {
+  content: none;
+}
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gs-bg-right-escudo {
+  background-image: url('../assets/imagenes/Logo_Gobierno.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  vertical-align: middle;
+  overflow-wrap: normal;
+
+}
+.gs-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+}
+
+/* =============================
+   CONTENEDOR GENERAL DE PÁGINA
+   ============================= */
+.gs-container {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+@media (max-width: 768px) {
+  .gs-container {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* =============================
+   CARDS DE LOGOS - PRESENTACIÓN
+   ============================= */
+.gs-logo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.gs-flex.gs-align-items-stretch {
+  align-items: stretch !important;
+}
+.gs-logo-img {
+  max-width: 180px;
+  max-height: 120px;
+  margin: 1.5rem 0 1rem 0;
+  object-fit: contain;
+}
+.gs-logo-desc {
+  margin-top: auto;
+  font-size: 1rem;
+}
+.gs-logo-img-container {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =============================
+   TÍTULO PRINCIPAL DE LA GUÍA
+   ============================= */
+.gs-titulo-principal {
+  font-family: 'Bembo Std', serif;
+  font-size: 2.2rem;
+  color: var(--gs-blue);
+  text-align: center;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  position: relative;
+  line-height: 1.2;
+}
+.gs-titulo-icono {
+  font-size: 2.2rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+.gs-titulo-sub {
+  font-size: 1.1rem;
+  color: var(--gs-dark-gray);
+  font-family: 'Museo Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+.gs-titulo-principal::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--gs-blue);
+  margin: 0.7rem auto 0 auto;
+  border-radius: 2px;
+  opacity: 0.15;
+}
+
+/* =============================
+   TÍTULO IMPACTO UNA LÍNEA
+   ============================= */
+.gs-titulo-impacto {
+  font-family: 'Bembo Std', serif;
+  font-size: 1.35rem;
+  color: var(--gs-white);
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  background: var(--gs-blue);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px 0 rgba(44, 44, 84, 0.07);
+  padding: 0.85rem 1.5rem 0.85rem 1.2rem;
+  margin: 1.2rem 0 1.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  border: 1.5px solid var(--gs-gray-10);
+}
+.gs-titulo-impacto .gs-titulo-icono {
+  font-size: 1.5rem;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+.gs-titulo-meta {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--gs-gray-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 0.7rem;
+  font-family: 'Museo Sans', sans-serif;
+  letter-spacing: 0.1px;
+}
