@@ -14,5 +14,5 @@ export * from './lib/hooks/useState';
 export const gla_styles = './src/lib/styles.css';
 
 /* EXPORT DE LAS IMAGENES */
-export const gla_images_logoGOB = "/node_modules/gla.gob.sv/src/assets/imagenes/Logo_Gobierno.svg";
-export const gla_images_logoCNR = "/node_modules/gla.gob.sv/src/assets/imagenes/LogoCNR.png";
+export const gla_images_logoGOB = "/assets/gla.gob.sv/assets/imagenes/Logo_Gobierno.svg";
+export const gla_images_logoCNR = "/assets/gla.gob.sv/assets/imagenes/LogoCNR.png";
